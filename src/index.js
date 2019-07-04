@@ -1,17 +1,27 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import ReactDOM from 'react-dom';
+
 
 import { createGlobalStyle } from 'styled-components';
 
+
 import reset from './constants/css/reset';
 
-import QuoteBox from './components/quote-box'
+import boxStyle from './constants/css/boxStyle';
+import QuoteBox from './components/quote-box';
 
-const GlobalStyle = createGlobalStyle`${reset}`;
+
+const GlobalStyle = createGlobalStyle`${boxStyle}`;
 
 const MOUNT_NODE = document.getElementById('quote-box');
 
 ReactDOM.render(
-    <QuoteBox />,
+    
+    <Fragment>
+
+        <GlobalStyle/>
+        <QuoteBox/>
+    </Fragment>
+    ,
     MOUNT_NODE
 );

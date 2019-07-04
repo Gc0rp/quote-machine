@@ -1,8 +1,6 @@
 import React from 'react';
 import quotes from './quotes';
 
-
-
 class QuoteBox extends React.Component { 
 
 
@@ -25,16 +23,18 @@ class QuoteBox extends React.Component {
             quote: quotePicked.text,
             author: quotePicked.from
         });
-        console.log(quotePicked);
+
     }
 
     render() {
         
         return(
-            <div>
-                <h1>{this.state.quote}</h1>
+            <div id="box">
+                
+                <h3>{this.state.quote}</h3>
+                
                 <p> - {this.state.author}</p>
-                <button type="submit" onClick={this.pickNewQuote}>New Quote</button>
+                <button className="btn" type="submit" onClick={this.pickNewQuote}>New Quote</button>
             </div>
         );
     }
