@@ -1,11 +1,10 @@
 import { css } from 'styled-components';
 
 
-const boxStyle = css `
+const boxStyle = `
     #box{
         width: 500px;
         height: auto;
-        border: 1px solid red;
         margin: 150px auto;
         padding: 30px;
         border-radius: 5px;
@@ -20,6 +19,20 @@ const boxStyle = css `
     }
 
     .btn{
+        background-color: red;
+    }
+
+    .col-8 {
+        text-align: right;
+    }
+
+    .social-media {
+        width: 45px;
+        height: 45px;
+    }
+
+    .twitterLogo{
+        background-image: url(images/twitter.png);
         background-color: red;
     }
 `;

@@ -87,6 +87,7 @@
         "webpack-merge": "^4.2.1"
     },
     "dependencies": {
+        "animate.css": "^3.7.2",
         "bootstrap": "^4.3.1",
         "cross-env": "^5.2.0",
         "express": "^4.17.1",

@@ -1301,18 +1301,4 @@ const quotes = [
     }
  ];
 
-
-// import React from 'react';
-
-
-// class GenerateQuote extends React.Component{
-//     render() { 
-//        const randomNumber = Math.floor(Math.random() * quotes.length);
-//         return (
-            
-//         <h1>{quotes[randomNumber].text}</h1>
-//         );
-//     }
-// }
-
 export default quotes;
