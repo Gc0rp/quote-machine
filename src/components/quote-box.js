@@ -19,46 +19,57 @@ class QuoteBox extends React.Component {
             author: ''
         };
 
+        this.newQuoteRequested = this.newQuoteRequested.bind(this);
         this.pickNewQuote = this.pickNewQuote.bind(this);
     }
 
-    pickNewQuote(event) {
-        event.preventDefault();
-        let randomNumber = Math.floor(Math.random() * quotes.length);
-        const quotePicked = quotes[randomNumber];
-        this.setState({
-            quote: quotePicked.text,
-            author: quotePicked.from
-        });
-        
-        randomNumber = Math.floor(Math.random() * colorList.length);
-        $("body").css("background-color", colorList[randomNumber]);
-        
-        $("#tweet-quote").addClass("animated fadeIn").css("background-color", colorList[randomNumber]);
-        
-        $("#facebook-quote").css("background-color", colorList[randomNumber]);
-        $("#new-quote").css("background-color", colorList[randomNumber]);
-
-        $("#box").css("background-color", "white");
-
-        $("#tweet-quote").removeClass("fadeIn");
+    componentDidMount() {
+        setTimeout( () => {
+            this.pickNewQuote();
+        }, 500);
     }
 
+    pickNewQuote() {
+        let randomNumber = Math.floor(Math.random() * quotes.length);
+        const quotePicked = quotes[randomNumber];
+        setTimeout(() => { 
+            this.setState({
+                quote: quotePicked.text,
+                author: quotePicked.from
+            })}, 500);
+        
+        randomNumber = Math.floor(Math.random() * colorList.length);
+        
+        setTimeout(() => { 
+            $("body").css("background-color", colorList[randomNumber]);
+            $(".social-media").css("background-color", colorList[randomNumber]);       
+            $("#new-quote").css("background-color", colorList[randomNumber]);
+            $("#box").css("background-color", "white"); 
     
+        }, 250);
+        
+    }
+    
+    newQuoteRequested(event) {
+        event.preventDefault();
+        this.pickNewQuote();
+    }
 
     render() {
         
         return(
             <div id="box">
                 
-                <h3>{this.state.quote}</h3>
+                <h3 id="text">{this.state.quote}</h3>
                 
-                <p> - {this.state.author}</p>
+                <p id="author"> - {this.state.author}</p>
                 
                 <div className="row">
                     <div className="col-2">
-                        <button className="btn social-media" id="tweet-quote" type="submit">
-                            <img src={twitterLogo} />
+                        <button className="btn social-media" type="submit">
+                            <a href="twitter.com/intent/tweet" id="tweet-quote" >
+                                <img src={twitterLogo} />
+                            </a>
                         </button>
                     </div>
                     <div className="col-2">
@@ -68,7 +79,7 @@ class QuoteBox extends React.Component {
                     </div>
 
                     <div className="col-8">
-                        <button className="btn" id="new-quote" type="submit" onClick={this.pickNewQuote}>New Quote</button>
+                        <button className="btn" id="new-quote" type="submit" onClick={this.newQuoteRequested}>New Quote</button>
                     </div>
                     
                 </div>

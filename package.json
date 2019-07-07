@@ -1,7 +1,7 @@
 {
-    "name": "react-bolt",
+    "name": "quote-machine",
     "version": "1.0.0",
-    "description": "⚡ The most simple & robust boilerplate for your React projects.",
+    "description": "The machine that generates inspirational quotes.",
     "main": "src/index.js",
     "scripts": {
         "start": "cross-env NODE_ENV=development webpack-dev-server --open",
@@ -13,7 +13,9 @@
         "test:cover": "yarn run test --coverage",
         "cypress:open": "cypress open",
         "precommit": "yarn run lint && yarn test",
-        "prepush": "yarn run lint"
+        "prepush": "yarn run lint",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "keywords": [
         "react",
@@ -22,18 +24,18 @@
         "jest",
         "styled-components",
         "starter",
-        "boilerplate"
+        "quote-machine"
     ],
-    "author": "Leonardo Maldonado <leonardomso11@gmail.com>",
+    "author": "Oj",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/leonardomso/react-bolt.git"
+        "url": "git+https://github.com/Gc0rp/quote-machine"
     },
     "bugs": {
-        "url": "https://github.com/leonardomso/react-bolt/issues"
+        "url": "https://github.com/Gc0rp/quote-machine/issues"
     },
-    "homepage": "https://github.com/leonardomso/react-bolt#readme",
+    "homepage": "https://gc0rp.github.io/quote-machine",
     "devDependencies": {
         "@babel/cli": "^7.4.3",
         "@babel/core": "^7.5.0",
@@ -91,6 +93,7 @@
         "bootstrap": "^4.3.1",
         "cross-env": "^5.2.0",
         "express": "^4.17.1",
+        "gh-pages": "^2.0.1",
         "jquery": "^3.4.1",
         "popper.js": "^1.15.0",
         "react": "^16.8.6",
@@ -110,4 +113,5 @@
             "^.+\\.js$": "babel-jest"
         }
     }
+
 }
