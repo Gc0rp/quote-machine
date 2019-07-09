@@ -12,6 +12,7 @@ const boxStyle = `
 
     #box h2{
         text-align: center;
+        font-family: 'Roboto', sans-serif;
     }
 
     #box p {
